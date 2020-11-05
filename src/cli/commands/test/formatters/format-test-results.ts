@@ -46,18 +46,18 @@ export function extractDataToSendFromResults(
   options: Options,
 ): OutputDataTypes {
   let sarifData = {};
+  let stringifiedSarifData = '';
   if (options.sarif || options['sarif-file-output']) {
     sarifData = !options.iac
       ? createSarifOutputForContainers(results)
       : createSarifOutputForIac(results);
+    stringifiedSarifData = JSON.stringify(sarifData, null, 2);
   }
 
-  const stringifiedJsonData = JSON.stringify(
-    formatJsonOutput(jsonData),
-    null,
-    2,
-  );
-  const stringifiedSarifData = JSON.stringify(sarifData, null, 2);
+  let stringifiedJsonData = '';
+  if (options.json || options['json-file-output']) {
+    stringifiedJsonData = JSON.stringify(formatJsonOutput(jsonData), null, 2);
+  }
 
   const dataToSend = options.sarif ? sarifData : jsonData;
   const stringifiedData = options.sarif
