@@ -26,6 +26,7 @@ const alias = abbrev(
 );
 alias.d = 'debug'; // always make `-d` debug
 alias.t = 'test';
+alias.q = 'quiet';
 alias.p = 'prune-repeated-subdependencies';
 
 // The -d flag enables printing the messages for predefined namespaces.
