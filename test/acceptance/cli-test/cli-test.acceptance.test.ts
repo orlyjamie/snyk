@@ -138,21 +138,21 @@ if (!isWindows) {
   //   }
   // });
 
-  test('Languages', async (t) => {
-    for (const languageTest of languageTests) {
-      t.test(languageTest.language, async (tt) => {
-        for (const testName of Object.keys(languageTest.tests)) {
-          tt.test(
-            testName,
-            languageTest.tests[testName](
-              { server, plugins, ecoSystemPlugins, versionNumber, cli },
-              { chdirWorkspaces },
-            ),
-          );
-        }
-      });
-    }
-  });
+  // test('Languages', async (t) => {
+  //   for (const languageTest of languageTests) {
+  //     t.test(languageTest.language, async (tt) => {
+  //       for (const testName of Object.keys(languageTest.tests)) {
+  //         tt.test(
+  //           testName,
+  //           languageTest.tests[testName](
+  //             { server, plugins, ecoSystemPlugins, versionNumber, cli },
+  //             { chdirWorkspaces },
+  //           ),
+  //         );
+  //       }
+  //     });
+  //   }
+  // });
 
   // TODO: try and remove this config stuff
   // Was copied straight from ../src/cli-server.js
